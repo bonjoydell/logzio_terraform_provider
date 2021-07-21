@@ -16,6 +16,7 @@ const (
 	resourceUserType             = "logzio_user"
 	resourceSubAccountType       = "logzio_subaccount"
 	resourceLogShippingTokenType = "logzio_log_shipping_token"
+	resourceDropFilterType       = "logzio_drop_filter"
 	envLogzioApiToken            = "LOGZIO_API_TOKEN"
 	envLogzioRegion              = "LOGZIO_REGION"
 	envLogzioBaseURL             = "LOGZIO_BASE_URL"
@@ -49,6 +50,7 @@ func Provider() terraform.ResourceProvider {
 			resourceSubAccountType:       dataSourceSubAccount(),
 			resourceAlertV2Type:          dataSourceAlertV2(),
 			resourceLogShippingTokenType: dataSourceLogShippingToken(),
+			resourceDropFilterType:       dataSourceDropFilter(),
 		},
 		ResourcesMap: map[string]*schema.Resource{
 			resourceAlertType:            resourceAlert(),
@@ -57,6 +59,7 @@ func Provider() terraform.ResourceProvider {
 			resourceSubAccountType:       resourceSubAccount(),
 			resourceAlertV2Type:          resourceAlertV2(),
 			resourceLogShippingTokenType: resourceLogShippingToken(),
+			resourceDropFilterType:       resourceDropFilter(),
 		},
 		ConfigureFunc: providerConfigure,
 	}
